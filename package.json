@@ -1,0 +1,29 @@
+{
+  "name": "asar-updater",
+  "version": "0.0.1",
+  "description": "Auto update asar file",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "electron",
+    "asar",
+    "updater",
+    "auto-updater",
+    "iceStone",
+    "zce"
+  ],
+  "author": "iceStone <ice@wedn.net> (http://www.wedn.net/)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zce/asar-updater.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zce/asar-updater/issues"
+  },
+  "homepage": "https://github.com/zce/asar-updater#readme"
+}
