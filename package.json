@@ -3,7 +3,10 @@
   "version": "0.0.1",
   "description": "Auto update asar file",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "got": "^6.3.0",
+    "semver": "^5.2.0"
+  },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

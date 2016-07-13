@@ -1,5 +1,3 @@
 'use strict'
 
-module.exports = () => {
-  console.log('not ready')
-}
+module.exports = require('./lib/updater')
