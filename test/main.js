@@ -1,25 +1,23 @@
+const { app, BrowserWindow } = require('electron')
 const updater = require('../lib/updater')
-
-updater.init('demo')
-
-// updater.setFeedURL('core.asar', 'http://git.oschina.net/micua/tms/raw/master/packages/core-4.0.0-beta1.zip')
-// updater.setFeedURL('updater.asar', 'http://git.oschina.net/micua/tms/raw/master/packages/updater-1.0.0-beta1.zip')
-updater.setFeedURL('core.asar', 'http://git.oschina.net/micua/tms/raw/master/latest/core.json')
-updater.setFeedURL('updater.asar', 'http://git.oschina.net/micua/tms/raw/master/latest/updater.json')
-
-updater.checkForUpdates()
-
-const electron = require('electron')
-// Module to control application life.
-const app = electron.app
-// Module to create native browser window.
-const BrowserWindow = electron.BrowserWindow
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
 
 function createWindow () {
+  updater.init('demo')
+  updater.on('available', (task) => console.log('available', task))
+  updater.on('not-available', (task) => console.log('not-available', task))
+  updater.on('progress', (task, p) => console.log(task.name, p))
+  updater.on('downloaded', (task) => console.log('downloaded', task))
+  updater.on('completed', (manifest, tasks) => console.log('completed', manifest))
+  updater.on('error', console.log)
+  updater.setFeedURL('data.asar', 'http://localhost:8080/latest/data.json')
+  updater.setFeedURL('core.asar', 'http://localhost:8080/latest/core.json')
+  updater.setFeedURL('updater.asar', 'http://localhost:8080/latest/updater.json')
+  updater.checkForUpdates()
+
   // Create the browser window.
   mainWindow = new BrowserWindow({width: 800, height: 600})
 
