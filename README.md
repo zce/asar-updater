@@ -10,6 +10,8 @@ An auto updater for electron asar
 [![NPM](https://nodei.co/npm/asar-updater.png)](https://nodei.co/npm/asar-updater/)
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
+## Is still not fully completed
+
 ## Usage
 
 ```javascript
