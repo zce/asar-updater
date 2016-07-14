@@ -1,8 +1,8 @@
 # asar-updater
 
 [![Build Status](https://travis-ci.org/zce/asar-updater.svg?branch=master)](https://travis-ci.org/zce/asar-updater)
-[![Dependency Status](https://david-dm.org/zce/itcast-tms.svg)](https://david-dm.org/zce/itcast-tms)
-[![devDependency Status](https://david-dm.org/zce/itcast-tms/dev-status.svg)](https://david-dm.org/zce/itcast-tms#info=devDependencies)
+[![Dependency Status](https://david-dm.org/zce/asar-updater.svg)](https://david-dm.org/zce/asar-updater)
+[![devDependency Status](https://david-dm.org/zce/asar-updater/dev-status.svg)](https://david-dm.org/zce/asar-updater#info=devDependencies)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
 An auto updater for electron asar
