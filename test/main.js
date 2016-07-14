@@ -6,6 +6,7 @@ const updater = require('../lib/updater')
 let mainWindow
 
 function createWindow () {
+
   updater.init('demo')
   updater.on('available', (task) => console.log('available', task))
   updater.on('not-available', (task) => console.log('not-available', task))
@@ -13,27 +14,27 @@ function createWindow () {
   updater.on('downloaded', (task) => console.log('downloaded', task))
   updater.on('completed', (manifest, tasks) => console.log('completed', manifest))
   updater.on('error', console.log)
-  updater.setFeedURL('data.asar', 'http://localhost:8080/latest/data.json')
+  // updater.setFeedURL('data.asar', 'http://localhost:8080/latest/data.json')
   updater.setFeedURL('core.asar', 'http://localhost:8080/latest/core.json')
   updater.setFeedURL('updater.asar', 'http://localhost:8080/latest/updater.json')
   updater.checkForUpdates()
 
-  // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600})
+  // // Create the browser window.
+  // mainWindow = new BrowserWindow({width: 800, height: 600})
 
-  // and load the index.html of the app.
-  mainWindow.loadURL(`data:text/html, <h1>hello</h1>`)
+  // // and load the index.html of the app.
+  // mainWindow.loadURL(`data:text/html, <h1>hello</h1>`)
 
-  // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+  // // Open the DevTools.
+  // mainWindow.webContents.openDevTools()
 
-  // Emitted when the window is closed.
-  mainWindow.on('closed', function () {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
-    mainWindow = null
-  })
+  // // Emitted when the window is closed.
+  // mainWindow.on('closed', function () {
+  //   // Dereference the window object, usually you would store windows
+  //   // in an array if your app supports multi windows, this is the time
+  //   // when you should delete the corresponding element.
+  //   mainWindow = null
+  // })
 }
 
 // This method will be called when Electron has finished
