@@ -1,6 +1,6 @@
 {
   "name": "asar-updater",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Auto update asar file",
   "main": "index.js",
   "dependencies": {
