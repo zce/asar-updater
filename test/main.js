@@ -1,3 +1,4 @@
+const path = require('path')
 const { app, BrowserWindow } = require('electron')
 const updater = require('../lib/updater')
 
@@ -12,11 +13,17 @@ function createWindow () {
   updater.on('not-available', (task) => console.log('not-available', task))
   updater.on('progress', (task, p) => console.log(task.name, p))
   updater.on('downloaded', (task) => console.log('downloaded', task))
-  updater.on('completed', (manifest, tasks) => console.log('completed', manifest))
-  updater.on('error', console.log)
+  updater.on('completed', (manifest, tasks) => {
+    console.log('completed', tasks)
+    app.quit()
+  })
+  updater.on('error', () => {
+    console.log(111111)
+    app.quit()
+  })
   // updater.setFeedURL('data.asar', 'http://localhost:8080/latest/data.json')
-  updater.setFeedURL('core.asar', 'http://localhost:8080/latest/core.json')
-  updater.setFeedURL('updater.asar', 'http://localhost:8080/latest/updater.json')
+  updater.setFeedURL(path.join(__dirname, 'core.asar'), 'http://git.oschina.net/wedn/itcast-tms/raw/master/latest/core.json')
+  // updater.setFeedURL(path.join(__dirname, 'updater.asar'), 'http://localhost:8080/latest/updater.json')
   updater.checkForUpdates()
 
   // // Create the browser window.
