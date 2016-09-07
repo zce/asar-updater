@@ -14,7 +14,7 @@
   },
   "scripts": {
     "lint": "standard \"lib/**/*.js\"",
-    "test": "electron test/main"
+    "test": "electron test"
   },
   "keywords": [
     "electron",
