@@ -10,20 +10,42 @@ An auto updater for electron asar
 [![NPM](https://nodei.co/npm/asar-updater.png)](https://nodei.co/npm/asar-updater/)
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
-## Is still not fully completed
+
 
 ## Usage
 
 ```javascript
-updater.init('demo')
-updater.on('available', (task) => console.log('available', task))
-updater.on('not-available', (task) => console.log('not-available', task))
-updater.on('progress', (task, p) => console.log(task.name, p))
-updater.on('downloaded', (task) => console.log('downloaded', task))
-updater.on('completed', (manifest, tasks) => console.log('completed', manifest))
-updater.on('error', console.log)
-updater.setFeedURL('data.asar', 'http://localhost:8080/latest/data.json')
-updater.setFeedURL('core.asar', 'http://localhost:8080/latest/core.json')
-updater.setFeedURL('updater.asar', 'http://localhost:8080/latest/updater.json')
-updater.checkForUpdates()
+const path = require('path')
+const { app } = require('electron')
+const updater = require('../')
+
+app.on('ready', () => {
+  updater.init()
+  updater.on('available', (task) => {
+    console.log('available', task)
+  })
+  updater.on('not-available', (task) => {
+    console.log('not-available', task)
+  })
+  updater.on('progress', (task, p) => {
+    console.log(task.name, p)
+  })
+  updater.on('downloaded', (task) => {
+    console.log('downloaded', task)
+  })
+  updater.on('completed', (manifest, tasks) => {
+    console.log('completed', manifest, tasks)
+    app.quit()
+  })
+  updater.on('error', (err) => {
+    console.error(err)
+    app.quit()
+  })
+  updater.setFeedURL(path.join(__dirname, 'core.asar'), 'http://git.oschina.net/wedn/ebp/raw/vue/latest/core.json')
+  updater.setFeedURL(path.join(__dirname, 'data.asar'), 'http://git.oschina.net/wedn/ebp/raw/vue/latest/data.json')
+  updater.checkForUpdates()
+})
+
 ```
+
+[Example](https://github.com/zce/electron-boilerplate)
