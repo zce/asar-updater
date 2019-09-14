@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "electron": "^1.6.11",
-    "standard": "14.2.0"
+    "standard": "14.3.0"
   },
   "scripts": {
     "lint": "standard \"lib/**/*.js\"",
