@@ -9,7 +9,7 @@
     "semver": "^6.0.0"
   },
   "devDependencies": {
-    "electron": "^1.6.11",
+    "electron": "^7.2.4",
     "standard": "14.3.1"
   },
   "scripts": {
